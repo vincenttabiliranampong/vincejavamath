@@ -1,113 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Math in JavaScript</title>
-
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f6f9;
-        text-align: center;
-        margin-top: 60px;
-    }
-
-    .container {
-        width: 650px;
-        margin: auto;
-        padding: 30px;
-        background: #eeeeee;
-        border-radius: 10px;
-    }
-
-    h2 {
-        margin-bottom: 30px;
-    }
-
-    .row {
-        text-align: left;
-    }
-
-    label {
-        margin-right: 5px;
-    }
-
-    input[type="number"] {
-        width: 180px;
-        padding: 5px;
-        margin-right: 10px;
-    }
-
-    select {
-        width: 50px;
-        padding: 5px;
-        margin-right: 10px;
-    }
-
-    button {
-        margin-top: 20px;
-        padding: 8px 20px;
-        background-color: #007BFF;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    #result {
-        margin-top: 20px;
-        font-weight: bold;
-        display: none; /* hidden initially */
-        text-align: left;
-    }
-</style>
-
-<script>
-function solve() {
-    var num1 = parseFloat(document.getElementById("num1").value);
-    var num2 = parseFloat(document.getElementById("num2").value);
-    var operation = document.getElementById("operation").value;
-    var result;
-
-    if (isNaN(num1) || isNaN(num2)) {
-        result = "Please enter valid numbers.";
-    } else {
-        switch(operation) {
-            case "+":
-                result = num1 + num2;
-                break;
-            case "-":
-                result = num1 - num2;
-                break;
-            case "*":
-                result = num1 * num2;
-                break;
-            case "/":
-                if (num2 === 0) {
-                    result = "Cannot divide by zero.";
-                } else {
-                    result = num1 / num2;
-                }
-                break;
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
         }
-    }
 
-    document.getElementById("result").innerHTML = "Result: " + result;
-    document.getElementById("result").style.display = "block";
-}
-</script>
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
+        .container input,
+        .container select {
+            height: 25px;
+        }
+
+        .solve-btn {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>Simple Math Application</h2>
-
-    <div class="row">
+    <div class="container">
         <label>First Number:</label>
-        <input type="number" id="num1">
+        <input type="text" id="firstNumber">
 
-        <select id="operation">
+        <select id="operator">
             <option value="+">+</option>
             <option value="-">-</option>
             <option value="*">*</option>
@@ -115,15 +37,30 @@ function solve() {
         </select>
 
         <label>Second Number:</label>
-        <input type="number" id="num2">
+        <input type="text" id="secondNumber">
     </div>
 
-    <div class="row">
+    <div class="solve-btn">
         <button onclick="solve()">Solve</button>
     </div>
 
-    <div id="result"></div>
-</div>
+    <script>
+        function solve() {
+            var num1 = parseFloat(document.getElementById("firstNumber").value);
+            var num2 = parseFloat(document.getElementById("secondNumber").value);
+            var op = document.getElementById("operator").value;
+            var result;
+
+            switch(op) {
+                case "+": result = num1 + num2; break;
+                case "-": result = num1 - num2; break;
+                case "*": result = num1 * num2; break;
+                case "/": result = num1 / num2; break;
+            }
+
+            alert("Result: " + result);
+        }
+    </script>
 
 </body>
 </html>
