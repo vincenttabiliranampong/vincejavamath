@@ -43,6 +43,7 @@
     <div class="solve-btn">
         <button onclick="solve()">Solve</button>
     </div>
+    <p id="result"></p>
 
     <script>
         function solve() {
@@ -58,9 +59,10 @@
                 case "/": result = num1 / num2; break;
             }
 
-            alert("Result: " + result);
+            document.getElementById("result").innerHTML = "Result: " + result;
         }
     </script>
 
 </body>
 </html>
+
