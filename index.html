@@ -1,124 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Math in JavaScript</title>
+<meta charset="UTF-8">
+<title>Math in JavaScript</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f9;
-            text-align: center;
-            margin-top: 60px;
-        }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f9;
+        text-align: center;
+        margin-top: 60px;
+    }
 
-        .container {
-            width: 600px;
-            margin: auto;
-            padding: 25px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
+    .container {
+        width: 650px;
+        margin: auto;
+        padding: 30px;
+        background: #eeeeee;
+        border-radius: 10px;
+    }
 
-        input {
-            padding: 8px;
-            margin: 8px 0;
-        }
+    h2 {
+        margin-bottom: 30px;
+    }
 
-        select {
-            padding: 8px;
-            margin: 8px 0;
-        }
+    .row {
+        text-align: left;
+    }
 
-        button {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    label {
+        margin-right: 5px;
+    }
 
-        button:hover {
-            background-color: #0056b3;
-        }
+    input[type="number"] {
+        width: 180px;
+        padding: 5px;
+        margin-right: 10px;
+    }
 
-        #result {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            display: none; /* Hidden at first */
-            text-align: left;
-        }
+    select {
+        width: 50px;
+        padding: 5px;
+        margin-right: 10px;
+    }
 
-        .math-row {
-            text-align: left;
-        }
-    </style>
+    button {
+        margin-top: 20px;
+        padding: 8px 20px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-    <script>
-        function solve() {
-            var num1 = parseFloat(document.getElementById("num1").value);
-            var num2 = parseFloat(document.getElementById("num2").value);
-            var operation = document.getElementById("operation").value;
-            var result;
+    #result {
+        margin-top: 20px;
+        font-weight: bold;
+        display: none; /* hidden initially */
+        text-align: left;
+    }
+</style>
 
-            if (isNaN(num1) || isNaN(num2)) {
-                result = "Please enter valid numbers.";
-            } else {
-                switch(operation) {
-                    case "+":
-                        result = num1 + num2;
-                        break;
-                    case "-":
-                        result = num1 - num2;
-                        break;
-                    case "*":
-                        result = num1 * num2;
-                        break;
-                    case "/":
-                        if (num2 === 0) {
-                            result = "Cannot divide by zero.";
-                        } else {
-                            result = num1 / num2;
-                        }
-                        break;
+<script>
+function solve() {
+    var num1 = parseFloat(document.getElementById("num1").value);
+    var num2 = parseFloat(document.getElementById("num2").value);
+    var operation = document.getElementById("operation").value;
+    var result;
+
+    if (isNaN(num1) || isNaN(num2)) {
+        result = "Please enter valid numbers.";
+    } else {
+        switch(operation) {
+            case "+":
+                result = num1 + num2;
+                break;
+            case "-":
+                result = num1 - num2;
+                break;
+            case "*":
+                result = num1 * num2;
+                break;
+            case "/":
+                if (num2 === 0) {
+                    result = "Cannot divide by zero.";
+                } else {
+                    result = num1 / num2;
                 }
-            }
-
-            document.getElementById("result").innerHTML = "Result: " + result;
-            document.getElementById("result").style.display = "block";
+                break;
         }
-    </script>
-</head>
+    }
 
+    document.getElementById("result").innerHTML = "Result: " + result;
+    document.getElementById("result").style.display = "block";
+}
+</script>
+
+</head>
 <body>
 
-    <div class="container">
-        <h2>Simple Math Application</h2>
+<div class="container">
+    <h2>Simple Math Application</h2>
 
-        <div class="math-row">
-            <label>First Number:</label>
-            <input type="number" id="num1" style="width:150px;">
+    <div class="row">
+        <label>First Number:</label>
+        <input type="number" id="num1">
 
-            <select id="operation" style="width:60px;">
-                <option value="+">+</option>
-                <option value="-">-</option>
-                <option value="*">*</option>
-                <option value="/">/</option>
-            </select>
+        <select id="operation">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
 
-            <label>Second Number:</label>
-            <input type="number" id="num2" style="width:150px;">
-            
-            <br><br>
-
-            <button onclick="solve()">Solve</button>
-        </div>
-
-        <div id="result"></div>
+        <label>Second Number:</label>
+        <input type="number" id="num2">
     </div>
+
+    <div class="row">
+        <button onclick="solve()">Solve</button>
+    </div>
+
+    <div id="result"></div>
+</div>
 
 </body>
 </html>
