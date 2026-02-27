@@ -13,7 +13,7 @@
         }
 
         .container {
-            width: 400px;
+            width: 600px;
             margin: auto;
             padding: 25px;
             background: white;
@@ -22,13 +22,11 @@
         }
 
         input {
-            width: 90%;
             padding: 8px;
             margin: 8px 0;
         }
 
         select {
-            width: 95%;
             padding: 8px;
             margin: 8px 0;
         }
@@ -51,6 +49,11 @@
             font-size: 18px;
             font-weight: bold;
             display: none; /* Hidden at first */
+            text-align: left;
+        }
+
+        .math-row {
+            text-align: left;
         }
     </style>
 
@@ -95,20 +98,24 @@
     <div class="container">
         <h2>Simple Math Application</h2>
 
-        <input type="number" id="num1" placeholder="Enter first number">
+        <div class="math-row">
+            <label>First Number:</label>
+            <input type="number" id="num1" style="width:150px;">
 
-        <input type="number" id="num2" placeholder="Enter second number">
+            <select id="operation" style="width:60px;">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
 
-        <select id="operation">
-            <option value="+">Addition (+)</option>
-            <option value="-">Subtraction (-)</option>
-            <option value="*">Multiplication (*)</option>
-            <option value="/">Division (/)</option>
-        </select>
+            <label>Second Number:</label>
+            <input type="number" id="num2" style="width:150px;">
+            
+            <br><br>
 
-        <br><br>
-
-        <button onclick="solve()">Solve</button>
+            <button onclick="solve()">Solve</button>
+        </div>
 
         <div id="result"></div>
     </div>
